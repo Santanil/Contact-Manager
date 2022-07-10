@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/userbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+
+			<div class="card">
+				<div class="card-body">
+
+					<div class="image">
+						<img class="profile-image-contact-details" src=""
+							th:src="@{/img/default.png}" alt="profile-photo" />
+					</div>
+
+					<h1 class="text-center" >Start adding contact right away....</h1>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+
+	
+	
+	
+	<script>
+		$(document).ready(()=>{
+			$(".item").removeClass("active");
+			$("#home-link").addClass("active");
+		});
+	</script>
+	
+</section>
+</body>
+</html>
+

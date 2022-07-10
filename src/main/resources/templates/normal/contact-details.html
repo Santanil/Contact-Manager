@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/userbase::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<section>
+		<div class="card">
+			<div class="card-body" th:if=${contact}>
+				<div class="image">
+					<img class="profile-image-contact-details" src=""
+						th:src="@{'/img/'+${contact.imageUrl}}" alt="profile-photo" />
+				</div>
+
+				<div class="name-contact-details">
+					<span th:text="${contact.name}"></span>
+					<div th:if="${contact.nickName}!=''" class="class">
+						<span th:text="'('+${contact.nickName}+')'"></span>
+					</div>
+
+
+				</div>
+
+
+				<table class="table mt-5">
+					<thead>
+						<tr>
+							<th scope="col">#ID</th>
+							<th scope="col">SCMUSER<span th:text="${contact.cId}"></span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Contact Number</th>
+							<td><span th:text="${contact.phone}"></span></td>
+						</tr>
+						<tr>
+							<th scope="row">Email</th>
+							<td><span th:text="${contact.email}"></span></td>
+						</tr>
+						<tr>
+							<th scope="row">Work</th>
+							<td><span th:text="${contact.work}"></span></td>
+						</tr>
+
+					</tbody>
+				</table>
+
+				<div class="description-header mt-5 ml-5 mr-5">
+					<span>Description</span>
+				</div>
+
+				<div class="description-body mt-3 ml-5 mr-5">
+					<th:block th:text="${contact.description}"></th:block>
+				</div>
+				<div class="buttons-contact-details mt-5 ml-5 mr-5">
+					<form method="post" th:action="@{'/user/update-contact/'+${contact.cId}}">
+						<button type="submit" class="btn btn-primary">Update</button>
+					</form>
+					<a href="#" th:onclick="|deleteContact(${contact.cId})|"
+						class="btn btn-danger">Delete</a>
+				</div>
+
+			</div>
+
+			<h2 class="text-center p-3 mt-3" th:unless=${contact}>You do not
+				have permission to access this page!</h2>
+
+		</div>
+
+
+
+	</section>
+</body>
+</html>
+

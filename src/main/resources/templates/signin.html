@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	th:replace="base::layout(~{::body})">
+<head>
+<meta charset="ISO-8859-1">
+<title>About Page</title>
+<link rel="stylesheet" th:href="@{/css/style1.css}" />
+</head>
+<body>
+	<section>
+		<div class="wrapper fadeInDown">
+			<div id="formContent">
+				<!-- Tabs Titles -->
+
+				<!-- Icon -->
+				<div class="fadeIn first">
+					<img src="../img/user.png" id="icon" alt="User Icon" />
+				</div>
+
+				<!-- Login Form -->
+				
+				<form class="form" method="post" th:action="@{/login-success}">
+					<div th:if="${param.error}" class="alert alert-danger">
+						Invalid Username or Password!</div>
+						<div th:if="${param.logout}" class="alert alert-success">
+						Successfully logged out!</div>
+					<input type="text" id="login" class="fadeIn second" name="username"
+						placeholder="username"> 
+					<input type="password"
+						id="password" class="fadeIn third" name="password"
+						placeholder="password"> 
+					<input type="submit"
+						class="fadeIn fourth" value="Sign In">
+				</form>
+
+
+
+				<!-- Remind Passowrd -->
+				<div id="formFooter">
+					<a class="underlineHover" href="/signup">Sign Up</a>
+				</div>
+
+			</div>
+		</div>
+	</section>
+</body>
+</html>
